@@ -44,7 +44,7 @@ for( let i=18;i<=534;i++){
   }
 }
 
-console.log(myArray_7);
+//console.log(myArray_7);
 
 /*
 
@@ -73,3 +73,76 @@ else if (profit>0)
 }
 
 
+/*
+ Out of the 29 people who took the flight, only 12 buy tickets to return from the Bahamas on the same plane. If the flying the plane back also costs 5000 dollars, and does the company make an overall profit or loss? 
+ The company charges the same fee of 200 dollars per ticket for the return flight.
+
+ */
+
+let return_people=29;
+let returnFlight=5000;
+let return_per_ticket=200;
+
+let return_profit=5000-29*200;
+
+if (return_profit<0){
+  console.log(`Return flight is giving loss of ${return_profit}  $`);
+}
+
+else if ( return_profit>0){
+  console.log(`Return flight is giving profit in ${return_profit}`);
+}
+
+let tweets = [
+  "Wow, what a great day today!! #sunshine",
+  "I feel sad about the things going on around us. #covid19",
+  "I'm really excited to learn JavaScript with @JovianHQ #fsdbootcamp",
+  "This is a really nice song. #linkinpark",
+  "The JavaScript programming language is useful for full stack development",
+  "Why do bad things happen to me?",
+  "Apple announces the release of the new iPhone 15. Fans are excited.",
+  "Spent my day with family!! #happy",
+  "Check out my blog post on common string operations in JavaScript. #fsdbootcamp",
+  "Freecodecamp has great coding tutorials. #skillup"
+];
+
+let happyWords = [
+  'great', 
+  'excited', 
+  'happy', 
+  'nice', 
+  'wonderful', 
+  'amazing',
+  'good', 
+  'best'
+];
+
+let sadWords = ['sad', 'bad', 'tragic', 'unhappy', 'worst'];
+let count_happ=0;
+let count_sad=0;
+// Looping through each tweet and checking for happy or sad words
+for (let i = 0; i < tweets.length; i++) {
+  let tweet = tweets[i].toLowerCase().split(/\s+/); // Split and lowercase tweet words
+
+  // Check if the tweet contains any sad word
+  let containsSad = tweet.some(word => sadWords.includes(word));
+
+  // Check if the tweet contains any happy word
+  let containsHappy = tweet.some(word => happyWords.includes(word));
+
+  // Output based on the tweet's mood
+  if (containsSad) {
+    count_happ=count_happ+1;
+    console.log("unhappy tweet: " + tweets[i]);
+  }
+  if (containsHappy) {
+    count_sad=count_sad+1;
+    console.log("happy tweet: " + tweets[i]);
+  }
+}
+console.log(`Number of happy tweets ${count_happ}`);
+
+console.log(`Number of sad tweets ${count_sad}`);
+
+console.log(`% of happy tweets in  ${count_happ*100/tweets.length}`);
+console.log(`% of happy tweets in  ${count_sad*100/tweets.length}`);
